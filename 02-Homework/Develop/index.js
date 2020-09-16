@@ -7,17 +7,19 @@ const generateMarkdown = require("./utils/generateMarkdown");
 const questions = [{
     type: "input",
     message: "What is your project's title?",
-    name: "title"
+    name: "title",
+    default: "Cool Project for Cool People"
 },
 {
     type: "input",
     message: "How would you describe your project?",
-    name: "Description"
+    name: "description",
+    default: "It's a trip to Coolsville"
 },
 {
     type: "input",
     message: "If you have the time, please provide some installation instructions for your project.",
-    name: "Installation"
+    name: "installation"
 },
 {
     type: "input",
@@ -43,12 +45,14 @@ const questions = [{
 {
     type: "input",
     message: "Please enter your Github username",
-    name: "username"
+    name: "username",
+    default: "kylegero"
 },
 {
     type: "input",
     message: "Lastly, please enter your email address.",
-    name: "email"
+    name: "email",
+    default: "kylepyk@gmail.com"
 }];
 
 // function to write README file
@@ -61,8 +65,21 @@ function writeToFile(fileName, data) {
     });
 }
 
+const writeFileAysnc = util.promisify(writeToFile);
+
 // function to initialize program
-function init() {
+async function init() {
+    try{
+        const userInput = await inquirer.prompt(questions);
+        console.log("You said ", userInput);
+
+        const markdown = generateMarkdown(userInput);
+        console.log(markdown);
+
+        await writeFileAysnc("ReadMeExample.md", markdown);
+} catch (error) {
+    console.log(error);
+}};
 
 
 // function call to initialize program

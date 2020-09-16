@@ -1,8 +1,6 @@
-// function to generate markdown for README
-function generateMarkdown(data) {
-  return `
+
   #Project Title
-  # ${data.title}
+  # Cool Project for Cool People
 
 
   ## Table of Contents
@@ -15,29 +13,26 @@ function generateMarkdown(data) {
 
 
   #Project Description
-  # ${data.description}
+  # It's a trip to Coolsville
 
   #How to Install
-  # ${data.installation}
+  # Open install.exe and we'll handle the rest!
 
   #Usage Info
-  # ${data.usage}
+  # Just follow the steps provided!  It's a great app for people who wanna be cool
 
   #How to Contribute
-  # ${data.contribution}
+  # Just be cool
 
   #Test
-  # ${data.tests}
+  # Are you feeling cooler?
 
   #License Used
-  # ${data.license}
+  # None
 
   ##Questions 
   #Ask me questions on Github or via email! 
-  # github.com/${data.username}
-  # ${data.email}
+  # github.com/kylegero
+  # kylepyk@gmail.com
 
   (https://img.shields.io/beerpay/kylegero/WK9_HW_Readme_Generator)
-`;
-}
-module.exports = generateMarkdown;
